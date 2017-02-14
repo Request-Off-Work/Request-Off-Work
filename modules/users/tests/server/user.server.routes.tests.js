@@ -677,7 +677,6 @@ describe('User CRUD tests', function () {
           }
 
           var userUpdate = {
-            firstName: 'user_update_first',
             lastName: 'user_update_last'
           };
 
@@ -690,7 +689,6 @@ describe('User CRUD tests', function () {
               }
 
               userInfoRes.body.should.be.instanceof(Object);
-              userInfoRes.body.firstName.should.be.equal('user_update_first');
               userInfoRes.body.lastName.should.be.equal('user_update_last');
               userInfoRes.body.roles.should.be.instanceof(Array).and.have.lengthOf(1);
               userInfoRes.body.roles.indexOf('user').should.equal(0);
@@ -718,7 +716,6 @@ describe('User CRUD tests', function () {
           }
 
           var userUpdate = {
-            firstName: 'user_update_first',
             lastName: 'user_update_last',
             roles: ['user', 'admin']
           };
@@ -732,7 +729,6 @@ describe('User CRUD tests', function () {
               }
 
               userInfoRes.body.should.be.instanceof(Object);
-              userInfoRes.body.firstName.should.be.equal('user_update_first');
               userInfoRes.body.lastName.should.be.equal('user_update_last');
               userInfoRes.body.roles.should.be.instanceof(Array).and.have.lengthOf(1);
               userInfoRes.body.roles.indexOf('user').should.equal(0);
