@@ -577,48 +577,6 @@ describe('User CRUD tests', function () {
       });
   });
 
-  it('should be able to get own user details successfully', function (done) {
-    agent.post('/api/auth/signin')
-      .send(credentials)
-      .expect(200)
-      .end(function (signinErr, signinRes) {
-        // Handle signin error
-        if (signinErr) {
-          return done(signinErr);
-        }
-
-        // Get own user details
-        agent.get('/api/users/me')
-          .expect(200)
-          .end(function (err, res) {
-            if (err) {
-              return done(err);
-            }
-
-            res.body.should.be.instanceof(Object);
-            res.body.username.should.equal(user.username);
-            res.body.email.should.equal(user.email);
-            should.not.exist(res.body.salt);
-            should.not.exist(res.body.password);
-            return done();
-          });
-      });
-  });
-
-  it('should not be able to get any user details if not logged in', function (done) {
-    // Get own user details
-    agent.get('/api/users/me')
-      .expect(200)
-      .end(function (err, res) {
-        if (err) {
-          return done(err);
-        }
-
-        should.not.exist(res.body);
-        return done();
-      });
-  });
-
   it('should be able to update own user details', function (done) {
     user.roles = ['user'];
 
