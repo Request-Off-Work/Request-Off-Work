@@ -131,7 +131,7 @@ describe('User Model Unit Tests:', function () {
       _user1.save(function (err) {
         should.not.exist(err);
         var passwordBefore = _user1.password;
-        _user1.firstName = 'test';
+        _user1.email = 'test@gmail.com';
         _user1.save(function (err) {
           var passwordAfter = _user1.password;
           passwordBefore.should.equal(passwordAfter);
