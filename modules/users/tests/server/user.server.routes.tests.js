@@ -47,7 +47,6 @@ describe('User CRUD tests', function () {
 
     // Create a new user
     _user = {
-      firstName: 'Full',
       lastName: 'Name',
       displayName: 'Full Name',
       email: 'test@test.com',
@@ -686,7 +685,6 @@ describe('User CRUD tests', function () {
           }
 
           var userUpdate = {
-            firstName: 'user_update_first',
             lastName: 'user_update_last',
             username: user.username
           };
@@ -738,7 +736,6 @@ describe('User CRUD tests', function () {
           }
 
           var userUpdate = {
-            firstName: 'user_update_first',
             lastName: 'user_update_last',
             email: user.email
           };
@@ -816,8 +813,7 @@ describe('User CRUD tests', function () {
       should.not.exist(err);
 
       var userUpdate = {
-        firstName: 'user_update_first',
-        lastName: 'user_update_last'
+        email: 'email-update@gmail.com'
       };
 
       agent.put('/api/users')
