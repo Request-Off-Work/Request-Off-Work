@@ -13,7 +13,7 @@ var _ = require('lodash'),
   User = mongoose.model('User'),
   validator = require('validator');
 
-var whitelistedFields = ['firstName', 'lastName', 'email', 'username'];
+var whitelistedFields = ['lastName', 'email', 'username'];
 
 /**
  * Update user details
@@ -27,7 +27,7 @@ exports.update = function (req, res) {
     user = _.extend(user, _.pick(req.body, whitelistedFields));
 
     user.updated = Date.now();
-    user.displayName = user.firstName + ' ' + user.lastName;
+    user.displayName = 'delete this';
 
     user.save(function (err) {
       if (err) {
